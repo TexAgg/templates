@@ -1,8 +1,8 @@
 import sys
 import os
 
-assignment = sys.argv[1]
-folder = sys.argv[2]
+folder = sys.argv[1]
+project = sys.argv[2]
 
 # Get name for this path.
 # http://stackoverflow.com/a/5137509/5415895
@@ -13,5 +13,5 @@ this_path = os.path.dirname(os.path.realpath(__file__))
 if not os.path.exists(folder):
 	os.makedirs(folder)
 
-os.system("m4 -DASSIGNMENT='" +  assignment + "' " + this_path + "/main.tex.m4 >" + folder + "/main.tex")
-os.system("m4 " + this_path + "/Makefile.m4 > " + folder + "/Makefile")
+os.system("m4 -DPROJECT='" + project + "' " + this_path + "/CMakeLists.txt.m4 > " + folder + "/CMakeLists.txt")
+os.system("m4 " + this_path + "/main.cpp.m4 > " + folder + "/main.cpp")
