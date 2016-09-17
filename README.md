@@ -3,5 +3,8 @@ Various templates I use for easily creating projects.
 
 ---
 
-## TODO
-* Combine all the scripts into one program.
+## Usage
+```
+templates.py <type> <project> <directory>
+```
+creates a `<type>` project named `<project>` in the directory `<directory>`.

@@ -1,9 +1,9 @@
 import sys
 import os
+import homework.homework as homework
+import cpp.cpp as cpp
 
-# TODO: From this script call functions declared in other folders.
-
-if (sys.argv[1] == "homework"):
-#{
-	
-#}
+if sys.argv[1] == "homework":
+	homework.create_project(sys.argv[2], sys.argv[3])
+elif sys.argv[1] == "cpp":
+	cpp.create_project(sys.argv[2], sys.argv[3])
