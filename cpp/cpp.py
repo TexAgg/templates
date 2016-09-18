@@ -14,4 +14,5 @@ def create_project(project, folder):
 
 	os.system("m4 -DPROJECT='" + project + "' " + this_path + "/CMakeLists.txt.m4 > " + folder + "/CMakeLists.txt")
 	os.system("m4 " + this_path + "/main.cpp.m4 > " + folder + "/main.cpp")
+	os.system("m4 -DPROJECT='" +  assignment + "' " + this_path + "/README.md.m4 >" + folder + "/README.md")
 #}

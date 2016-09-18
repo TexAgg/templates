@@ -14,4 +14,5 @@ def create_project(assignment, folder):
 
 	os.system("m4 -DASSIGNMENT='" +  assignment + "' " + this_path + "/main.tex.m4 >" + folder + "/main.tex")
 	os.system("m4 " + this_path + "/Makefile.m4 > " + folder + "/Makefile")
+	os.system("m4 -DASSIGNMENT='" +  assignment + "' " + this_path + "/README.md.m4 >" + folder + "/README.md")
 #}
