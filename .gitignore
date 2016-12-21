@@ -1,6 +1,3 @@
 test/
 .vscode/
 *.pyc
-
-# I keep accidently opening this in RStudio.
-.Rhistory
