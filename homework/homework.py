@@ -39,4 +39,9 @@ def create_project(assignment, folder):
 	readme_string = readme_template.render(assignment = assignment)
 	with open(folder + "/README.md", "w+") as f:
   		f.write(readme_string)
+	
+	honor_template = env.get_template('honor.txt')
+	honor_string = honor_template.render()
+	with open(folder + "/honor.txt", "w+") as f:
+		f.write(honor_string)
 #}
