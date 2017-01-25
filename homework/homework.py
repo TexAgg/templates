@@ -3,7 +3,7 @@ import os
 import jinja2
 from jinja2 import Template
 
-def create_project(assignment, folder):
+def create_project(assignment, folder, honor_statement):
 #{
 	# Get name for this path.
 	# http://stackoverflow.com/a/5137509/5415895
@@ -40,8 +40,9 @@ def create_project(assignment, folder):
 	with open(folder + "/README.md", "w+") as f:
   		f.write(readme_string)
 	
-	honor_template = env.get_template('honor.txt')
-	honor_string = honor_template.render()
-	with open(folder + "/honor.txt", "w+") as f:
-		f.write(honor_string)
+	if honor_statement:
+		honor_template = env.get_template('honor.txt')
+		honor_string = honor_template.render()
+		with open(folder + "/honor.txt", "w+") as f:
+			f.write(honor_string)
 #}
