@@ -8,6 +8,7 @@ Various templates I use for easily creating projects.
 templates.py <type> <project> <directory>
 ```
 creates a `<type>` project named `<project>` in the directory `<directory>`.
+Run `python templates.py -h` for more help.
 
 ---
 
