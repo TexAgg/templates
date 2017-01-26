@@ -1,3 +1,6 @@
 test/
 .vscode/
+# Binaries and executables.
 *.pyc
+*.zip
+templates
