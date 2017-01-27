@@ -3,7 +3,7 @@
 # http://blog.ablepear.com/2012/10/bundling-python-files-into-stand-alone.html
 #
 # The executable doesn't work.
-# Need pkg_resources
+# Need pkg_resources: http://stackoverflow.com/a/5356563/5415895
 
 # Zip everything.
 zip -r templates.zip *
