@@ -2,6 +2,7 @@ import sys
 import os
 import jinja2
 from jinja2 import Template
+import pkg_resources
 
 def create_project(project, folder):
 #{
@@ -25,17 +26,17 @@ def create_project(project, folder):
    		loader = jinja2.FileSystemLoader(this_path)
 	)
 
-	cmake_template = env.get_template('CMakeLists.txt')
+	cmake_template = env.from_string(pkg_resources.resource_string(__name__, 'CMakeLists.txt'))
 	cmake_string = cmake_template.render(project = project)
 	with open(folder + "/CMakeLists.txt", "w+") as f:
 		f.write(cmake_string)
 
-	cpp_template = env.get_template('main.cpp')
+	cpp_template = env.from_string(pkg_resources.resource_string(__name__, 'main.cpp'))
 	cpp_string = cpp_template.render()
 	with open(folder + "/main.cpp", "w+") as f:
 		f.write(cpp_string)
 
-	readme_template = env.get_template('README.md')
+	readme_template = env.from_string(pkg_resources.resource_string(__name__, 'README.md'))
 	readme_string = readme_template.render(project = project)
 	with open(folder + "/README.md", "w+") as f:
 		f.write(readme_string)

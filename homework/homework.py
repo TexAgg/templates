@@ -26,24 +26,23 @@ def create_project(assignment, folder, honor_statement):
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 
-	#print pkg_resources.resource_string(__name__, 'main.tex')
 	tex_template = env.from_string(pkg_resources.resource_string(__name__, 'main.tex'))
 	tex_string = tex_template.render(assignment = assignment)
 	with open(folder + "/main.tex", "w+") as f:
   		f.write(tex_string)
 	
-	make_template = env.from_string(pkg_resources.resource_string(__name__, 'Makefile')) #env.get_template('Makefile')
+	make_template = env.from_string(pkg_resources.resource_string(__name__, 'Makefile'))
 	make_string = make_template.render()
 	with open(folder + "/Makefile", "w+") as f:
   		f.write(make_string)
 
-	readme_template = env.from_string(pkg_resources.resource_string(__name__, 'README.md')) #env.get_template('README.md')
+	readme_template = env.from_string(pkg_resources.resource_string(__name__, 'README.md'))
 	readme_string = readme_template.render(assignment = assignment)
 	with open(folder + "/README.md", "w+") as f:
   		f.write(readme_string)
 	
 	if honor_statement:
-		honor_template = env.from_string(pkg_resources.resource_string(__name__, 'honor.txt')) #env.get_template('honor.txt')
+		honor_template = env.from_string(pkg_resources.resource_string(__name__, 'honor.txt'))
 		honor_string = honor_template.render()
 		with open(folder + "/honor.txt", "w+") as f:
 			f.write(honor_string)
