@@ -3,9 +3,9 @@
 import sys
 import os
 import argparse
-import homework.homework as homework
-import cpp.cpp as cpp
-import typescript.typescript as ts
+import src.homework.homework as homework
+import src.cpp.cpp as cpp
+import src.typescript.typescript as ts
 
 parser = argparse.ArgumentParser(description="Create an empty project.")
 subparsers = parser.add_subparsers(help='type of project.', dest='type')
