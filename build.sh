@@ -10,3 +10,5 @@ echo '#!/usr/bin/env python' | cat - templates.zip > templates
 chmod +x templates
 # Copy executable to path.
 cp templates /usr/local/bin
+# Delete the zip file.
+rm templates.zip
