@@ -1,5 +1,6 @@
 # Templates
 Various templates I use for easily creating projects.
+The app will create projects assuming that your name is "Matt Gaikema", which has worked fine for me, but if you have a different name you might need to do some tinkering.
 
 ---
 
