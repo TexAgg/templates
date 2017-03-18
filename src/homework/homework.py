@@ -33,7 +33,7 @@ def create_project(assignment, folder, honor_statement, bib):
 			f.write(bib_string)		
 
 	tex_template = env.from_string(pkg_resources.resource_string(__name__, 'main.tex'))
-	tex_string = tex_template.render(assignment = assignment)
+	tex_string = tex_template.render(assignment = assignment, bib=bib)
 	with open(folder + "/main.tex", "w+") as f:
   		f.write(tex_string)
 	

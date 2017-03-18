@@ -2,7 +2,14 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\BLOCK{if bib}
+\usepackage[backend=bibtex,sorting=none]{biblatex}
+\BLOCK{endif}
 \usepackage{hyperref}
+
+\BLOCK{if bib}
+\addbibresource{sources.bib}
+\BLOCK{endif}
 
 \title{\VAR{assignment}}
 \author{Matt Gaikema}
@@ -11,5 +18,9 @@
 \begin{document}
 
 \maketitle
+
+\BLOCK{if bib}
+\printbibliography
+\BLOCK{endif}
 
 \end{document}
