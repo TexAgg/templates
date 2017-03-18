@@ -17,7 +17,8 @@ cpp_parser = subparsers.add_parser('cpp', help='Make a C++ project')
 
 # Homework subparser.
 hw_subparser = subparsers.add_parser('homework', help="Make a homework document")
-hw_subparser.add_argument('--honor', action='store_true' ,help="Whether to include the Aggie Honor Statement.")
+hw_subparser.add_argument('--honor', action='store_true', help="Whether to include the Aggie Honor Statement.")
+hw_subparser.add_argument("--bib", action="store_true", help="Include a bibliography")
 
 # Typescript subparser.
 ts_subparser = subparsers.add_parser('ts', help="Make a homework document")
@@ -27,6 +28,6 @@ args = vars(parser.parse_args())
 if args['type'] == "cpp":
 	cpp.create_project(args['title'], args['dir'])
 elif args['type'] == "homework":
-	homework.create_project(args['title'], args['dir'], args['honor'])
+	homework.create_project(args['title'], args['dir'], args['honor'], args['bib'])
 elif args['type'] == 'ts':
 	ts.create_project(args['title'], args['dir'])

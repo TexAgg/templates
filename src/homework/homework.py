@@ -4,7 +4,7 @@ import jinja2
 from jinja2 import Template
 import pkg_resources
 
-def create_project(assignment, folder, honor_statement):
+def create_project(assignment, folder, honor_statement, bib):
 #{
 	# Get name for this path.
 	# http://stackoverflow.com/a/5137509/5415895
@@ -32,7 +32,8 @@ def create_project(assignment, folder, honor_statement):
   		f.write(tex_string)
 	
 	make_template = env.from_string(pkg_resources.resource_string(__name__, 'Makefile'))
-	make_string = make_template.render()
+	make_string = make_template.render(bib = bib)
+	print bib
 	with open(folder + "/Makefile", "w+") as f:
   		f.write(make_string)
 
