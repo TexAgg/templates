@@ -26,6 +26,12 @@ def create_project(assignment, folder, honor_statement, bib):
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 
+	if bib:
+		bib_template = env.from_string(pkg_resources.resource_string(__name__, 'sources.bib'))
+		bib_string = bib_template.render(assignment = assignment)
+		with open(folder + "/sources.bib", "w+") as f:
+			f.write(bib_string)		
+
 	tex_template = env.from_string(pkg_resources.resource_string(__name__, 'main.tex'))
 	tex_string = tex_template.render(assignment = assignment)
 	with open(folder + "/main.tex", "w+") as f:
@@ -33,7 +39,6 @@ def create_project(assignment, folder, honor_statement, bib):
 	
 	make_template = env.from_string(pkg_resources.resource_string(__name__, 'Makefile'))
 	make_string = make_template.render(bib = bib)
-	print bib
 	with open(folder + "/Makefile", "w+") as f:
   		f.write(make_string)
 
