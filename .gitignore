@@ -4,3 +4,4 @@ test/
 *.pyc
 *.zip
 templates
+npm-debug.log
