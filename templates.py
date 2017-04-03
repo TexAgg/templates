@@ -6,11 +6,18 @@ import argparse
 import src.homework.homework as homework
 import src.cpp.cpp as cpp
 import src.typescript.typescript as ts
+import json
 
-parser = argparse.ArgumentParser(description="Create an empty project.")
+# Read the version from the package.json.
+with open('package.json') as json_data:
+	d = json.load(json_data)
+	version = d['version']
+
+parser = argparse.ArgumentParser(description="Create an empty project.", prog="templates")
 subparsers = parser.add_subparsers(help='type of project.', dest='type')
 parser.add_argument('-d', "--dir", help="The directory where the project should be.", required=True)
 parser.add_argument('-t', '--title', help="Title of the project being made", required=True)
+parser.add_argument('--version', action='version', version='%(prog)s ' + version)
 
 # C++ subparser.
 cpp_parser = subparsers.add_parser('cpp', help='Make a C++ project')
