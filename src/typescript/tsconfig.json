@@ -2,7 +2,8 @@
 	"compilerOptions": {
 		"removeComments": true,	
 		"module": "commonjs",
-    	"outDir": "build"
+    	"outDir": "lib/",
+		"declaration": true
 	},
 	"files": [
 		"scripts/main.ts"

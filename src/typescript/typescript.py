@@ -47,4 +47,9 @@ def create_project(project, folder):
 	readme_string = readme_template.render(project = project)
 	with open(folder + "/README.md", "w+") as f:
 		f.write(readme_string)
+
+	package_template = env.from_string(pkg_resources.resource_string(__name__, 'package.json'))
+	package_string = package_template.render(project = project)
+	with open(folder + "/package.json", "w+") as f:
+		f.write(package_string)
 #}
