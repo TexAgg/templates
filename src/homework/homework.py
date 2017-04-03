@@ -1,8 +1,6 @@
 import sys
 import os
-import jinja2
-from jinja2 import Template
-import pkg_resources
+from ..render import Renderer
 
 def create_project(assignment, folder, honor_statement, bib):
 #{
@@ -10,16 +8,7 @@ def create_project(assignment, folder, honor_statement, bib):
 	# http://stackoverflow.com/a/5137509/5415895
 	this_path = os.path.dirname(os.path.realpath(__file__))
 
-	env = jinja2.Environment(
-		block_start_string = '\BLOCK{',
-		block_end_string = '}',
-		variable_start_string = '\VAR{',
-		variable_end_string = '}',
-		line_statement_prefix = "-%",
-		trim_blocks = True,
-		autoescape = False,
-   		loader = jinja2.FileSystemLoader(this_path)
-	)
+	renderer = Renderer(this_path, __name__)
 
 	# Check if the folder exists, and create it if necessary.
 	# http://stackoverflow.com/a/273227/5415895
@@ -27,29 +16,12 @@ def create_project(assignment, folder, honor_statement, bib):
 		os.makedirs(folder)
 
 	if bib:
-		bib_template = env.from_string(pkg_resources.resource_string(__name__, 'sources.bib'))
-		bib_string = bib_template.render(assignment = assignment)
-		with open(folder + "/sources.bib", "w+") as f:
-			f.write(bib_string)		
+		renderer.render("sources.bib", "sources.bib", folder, {})
 
-	tex_template = env.from_string(pkg_resources.resource_string(__name__, 'main.tex'))
-	tex_string = tex_template.render(assignment = assignment, bib = bib)
-	with open(folder + "/main.tex", "w+") as f:
-  		f.write(tex_string)
-	
-	make_template = env.from_string(pkg_resources.resource_string(__name__, 'Makefile'))
-	make_string = make_template.render(bib = bib)
-	with open(folder + "/Makefile", "w+") as f:
-  		f.write(make_string)
-
-	readme_template = env.from_string(pkg_resources.resource_string(__name__, 'README.md'))
-	readme_string = readme_template.render(assignment = assignment)
-	with open(folder + "/README.md", "w+") as f:
-  		f.write(readme_string)
+	renderer.render("main.tex", "main.tex", folder, {"assignment": assignment, "bib": bib})
+	renderer.render("Makefile", "Makefile", folder, {"bib": bib})
+	renderer.render("README.md", "README.md", folder, {"assignment": assignment})
 	
 	if honor_statement:
-		honor_template = env.from_string(pkg_resources.resource_string(__name__, 'honor.txt'))
-		honor_string = honor_template.render()
-		with open(folder + "/honor.txt", "w+") as f:
-			f.write(honor_string)
+		renderer.render("honor.txt", "honor.txt", folder, {})
 #}

@@ -3,7 +3,7 @@ TEXFILE = main
 .PHONY: all
 all: $(TEXFILE).pdf
 
-\BLOCK{if bib}
+\BLOCK{if args["bib"]}
 $(TEXFILE).pdf: $(TEXFILE).tex sources.bib
 	pdflatex $(TEXFILE)
 	pdflatex $(TEXFILE)
