@@ -1,1 +1,1 @@
-# \VAR{project}
+# \VAR{args['project']}
