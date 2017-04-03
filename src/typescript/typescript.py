@@ -3,6 +3,7 @@ import os
 import jinja2
 from jinja2 import Template
 import pkg_resources
+from ..render import Renderer
 
 def create_project(project, folder):
 #{
@@ -28,28 +29,11 @@ def create_project(project, folder):
 	if not os.path.exists(folder + "/scripts"):
 		os.mkdir(folder + "/scripts")
 
-	tsconfig_template = env.from_string(pkg_resources.resource_string(__name__, 'tsconfig.json'))
-	tsconfig_string = tsconfig_template.render()
-	with open(folder + "/tsconfig.json", "w+") as f:
-		f.write(tsconfig_string)
+	renderer = Renderer(this_path, __name__)
 
-	main_template = env.from_string(pkg_resources.resource_string(__name__, 'main.ts'))
-	main_string = main_template.render()
-	with open(folder + "/main.ts", "w+") as f:
-		f.write(main_string)
-
-	build_template = env.from_string(pkg_resources.resource_string(__name__, 'build.py'))
-	build_string = build_template.render()
-	with open(folder + "/build.py", "w+") as f:
-		f.write(build_string)
-
-	readme_template = env.from_string(pkg_resources.resource_string(__name__, 'README.md'))
-	readme_string = readme_template.render(project = project)
-	with open(folder + "/README.md", "w+") as f:
-		f.write(readme_string)
-
-	package_template = env.from_string(pkg_resources.resource_string(__name__, 'package.json'))
-	package_string = package_template.render(project = project)
-	with open(folder + "/package.json", "w+") as f:
-		f.write(package_string)
+	renderer.render("tsconfig.json", "tsconfig.json", folder, {})
+	renderer.render("main.ts", "main.ts", folder, {})
+	renderer.render("build.py", "build.py", folder, {})
+	renderer.render("README.md", "README.md", folder, {"project": project})
+	renderer.render("package.json", "package.json", folder, {"project": project})
 #}
