@@ -29,7 +29,8 @@ hw_subparser.add_argument("--bib", action="store_true", help="Include a bibliogr
 
 # Typescript subparser.
 ts_subparser = subparsers.add_parser('ts', help="Make a homework document")
-#ts_subparser.add_argument("-w", "--webpack", action="store_true", help="Whether to use Webpack for the bundling.")
+# https://docs.python.org/3/library/argparse.html#choices
+ts_subparser.add_argument("--webpack", action="store_true", help="Whether to use Webpack for the bundling.")
 
 args = vars(parser.parse_args())
 
@@ -38,4 +39,4 @@ if args['type'] == "cpp":
 elif args['type'] == "homework":
 	homework.create_project(args['title'], args['dir'], args['honor'], args['bib'])
 elif args['type'] == 'ts':
-	ts.create_project(args['title'], args['dir'])
+	ts.create_project(args['title'], args['dir'], args['webpack'])

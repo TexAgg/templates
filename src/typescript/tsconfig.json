@@ -3,7 +3,8 @@
 		"removeComments": true,	
 		"module": "commonjs",
     	"outDir": "lib/",
-		"declaration": true
+		"declaration": true,
+		"target": "es6"
 	},
 	"files": [
 		"scripts/main.ts"
