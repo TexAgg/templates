@@ -7,11 +7,12 @@ import src.homework.homework as homework
 import src.cpp.cpp as cpp
 import src.typescript.typescript as ts
 import json
+import pkg_resources
 
 # Read the version from the package.json.
-with open('package.json') as json_data:
-	d = json.load(json_data)
-	version = d['version']
+json_data = pkg_resources.resource_string(__name__, "package.json")
+d = json.loads(json_data)
+version = d['version']
 
 parser = argparse.ArgumentParser(description="Create an empty project.", prog="templates")
 subparsers = parser.add_subparsers(help='type of project.', dest='type')
