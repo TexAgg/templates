@@ -21,7 +21,6 @@ def create_project(project, folder, webpack):
 	# http://stackoverflow.com/a/8858026/5415895
 	renderer.render("main.ts", "scripts/main.ts", folder, {})
 	renderer.render("README.md", "README.md", folder, {"project": project})
-	renderer.render("package.json", "package.json", folder, {"project": project})
 	if (webpack):
 		# http://bit.ly/2nHluCr
 		renderer.render("webpack.config.js", "webpack.config.js", folder, {})

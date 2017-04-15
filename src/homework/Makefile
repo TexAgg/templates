@@ -29,4 +29,4 @@ clean:
 
 .PHONY: view
 view: $(TEXFILE).pdf
-	evince $(TEXFILE).pdf
+	evince $(TEXFILE).pdf &
