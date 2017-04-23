@@ -7,3 +7,4 @@ templates
 npm-debug.log
 debian/
 resources.md
+*.deb

@@ -12,3 +12,10 @@ chmod +x templates
 sudo cp templates /usr/local/bin
 # Delete the zip file.
 rm templates.zip
+
+# BETA: create deb package.
+# https://github.com/jordansissel/fpm/wiki
+## http://stackoverflow.com/a/1955555/5415895
+VERSION=$(python -c "import sys, json; print json.load(sys.stdin)['version']" < package.json)
+## http://stackoverflow.com/a/37124240/5415895
+fpm -s dir -t deb -n "templates" --after-install install.sh -x *.pyc -x git\* -x *.zip -x templates -x *.deb -v $VERSION -C . 
