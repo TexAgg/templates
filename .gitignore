@@ -5,3 +5,5 @@ test/
 *.zip
 templates
 npm-debug.log
+debian/
+resources.md
