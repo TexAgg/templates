@@ -2,7 +2,7 @@ import sys
 import os
 from ..render import Renderer
 
-def create_project(project, folder, webpack):
+def create_project(project, folder, no_webpack):
 #{
 	# Get name for this path.
 	# http://stackoverflow.com/a/5137509/5415895
@@ -21,7 +21,7 @@ def create_project(project, folder, webpack):
 	# http://stackoverflow.com/a/8858026/5415895
 	renderer.render("main.ts", "scripts/main.ts", folder, {})
 	renderer.render("README.md", "README.md", folder, {"project": project})
-	if (webpack):
+	if (not no_webpack):
 		# http://bit.ly/2nHluCr
 		renderer.render("webpack.config.js", "webpack.config.js", folder, {})
 		print("Don't forget to run `yarn add --dev tsc-loader`!")
