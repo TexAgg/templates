@@ -19,3 +19,5 @@ def create_project(project, folder):
 	renderer.render("header.php", "templates/header.php", folder, {})
 	renderer.render("header.php", "templates/footer.php", folder, {})
 	renderer.render('run.sh', "run.sh", folder, {})
+
+	print("Don't forget to run composer init!")
