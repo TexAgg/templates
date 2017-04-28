@@ -6,6 +6,7 @@ import argparse
 import src.homework.homework as homework
 import src.cpp.cpp as cpp
 import src.typescript.typescript as ts
+import src.php.php as php
 import json
 import pkg_resources
 
@@ -33,6 +34,9 @@ ts_subparser = subparsers.add_parser('ts', help="Make a homework document")
 # https://docs.python.org/3/library/argparse.html#choices
 ts_subparser.add_argument("--webpack", action="store_true", help="Whether to use Webpack for the bundling.")
 
+# PHP subparser.
+php_subparser = subparsers.add_parser('php', help="Make a php project")
+
 args = vars(parser.parse_args())
 
 if args['type'] == "cpp":
@@ -41,3 +45,5 @@ elif args['type'] == "homework":
 	homework.create_project(args['title'], args['dir'], args['honor'], args['bib'])
 elif args['type'] == 'ts':
 	ts.create_project(args['title'], args['dir'], args['webpack'])
+elif args['type'] == 'php':
+	php.create_project(args['title'], args['dir'])
