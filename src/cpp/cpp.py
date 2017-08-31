@@ -1,16 +1,16 @@
 import sys
 import os
-# http://stackoverflow.com/a/1054281/5415895
+# http://bit.ly/2vvesJ0
 from ..render import Renderer
 
 def create_project(project, folder):
 #{
 	# Get name for this path.
-	# http://stackoverflow.com/a/5137509/5415895
+	# http://bit.ly/2wVprfh
 	this_path = os.path.dirname(os.path.realpath(__file__))
 
 	# Check if the folder exists, and create it if necessary.
-	# http://stackoverflow.com/a/273227/5415895
+	# http://bit.ly/2wl5jkU
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 

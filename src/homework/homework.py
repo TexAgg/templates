@@ -5,13 +5,13 @@ from ..render import Renderer
 def create_project(assignment, folder, honor_statement, bib):
 #{
 	# Get name for this path.
-	# http://stackoverflow.com/a/5137509/5415895
+	# http://bit.ly/2wVprfh
 	this_path = os.path.dirname(os.path.realpath(__file__))
 
 	renderer = Renderer(this_path, __name__)
 
 	# Check if the folder exists, and create it if necessary.
-	# http://stackoverflow.com/a/273227/5415895
+	# http://bit.ly/2wl5jkU
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 

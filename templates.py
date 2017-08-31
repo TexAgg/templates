@@ -31,7 +31,7 @@ hw_subparser.add_argument("--bib", action="store_true", help="Include a bibliogr
 
 # Typescript subparser.
 ts_subparser = subparsers.add_parser('ts', help="Make a homework document")
-# https://docs.python.org/3/library/argparse.html#choices
+# http://bit.ly/2wVaidH
 ts_subparser.add_argument("--no-webpack", action="store_true", help="Whether to use Webpack for the bundling.")
 
 # PHP subparser.

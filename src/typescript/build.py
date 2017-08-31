@@ -1,6 +1,6 @@
 # Reads the files in tsconfig.json, compiles them to javascript,
 # and then browserifies and uglifies the javascript.
-# The newest version of this file can be found at <https://bitbucket.org/snippets/gaikema/zoMq8/>.
+# The newest version of this file can be found at <https://pastebin.com/JVD1rn2a>.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,11 +28,11 @@ ts_files = data['files']
 print("Compiling typescript files")
 os.system("tsc")
 
-# http://stackoverflow.com/a/3964691/5415895
+# http://bit.ly/2wVwmFc
 os.chdir("build")
 js_files = glob.glob("*.js")
 # Make dist subdirectory if not made yet.
-# http://stackoverflow.com/a/273227/5415895
+# http://bit.ly/2wl5jkU
 if not os.path.exists("dist"):
     os.makedirs("dist")
 print("Browserifying files")

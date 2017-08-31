@@ -13,10 +13,10 @@ Run `python templates.py -h` for more help.
 
 ### Installation
 Run `bash install.sh` (`sudo` will be prompted as needed) and the script will be installed to your `PATH` so you can call `templates` anywhere in your terminal.
-You might need to install the dependencies with [`pip install -r requirements.txt`](http://stackoverflow.com/a/10429168/5415895).
+You might need to install the dependencies with [`pip install -r requirements.txt`](http://bit.ly/2wqf0gh).
 
 ---
 
 ## Resources
-* [Command Line Arguments](https://docs.python.org/2/library/optparse.html)
-* [ZIP executable](http://blog.ablepear.com/2012/10/bundling-python-files-into-stand-alone.html)
+* [Command Line Arguments](http://bit.ly/2glVvy1)
+* [ZIP executable](http://bit.ly/2pUwe4m)

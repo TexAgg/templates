@@ -6,7 +6,7 @@ def create_project(project, folder):
 	this_path = os.path.dirname(os.path.realpath(__file__))
 
 	# Check if the folder exists, and create it if necessary.
-	# http://stackoverflow.com/a/273227/5415895
+	# http://bit.ly/2wl5jkU
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 	if not os.path.exists(folder + "/templates"):

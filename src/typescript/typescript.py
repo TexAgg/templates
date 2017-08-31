@@ -5,11 +5,11 @@ from ..render import Renderer
 def create_project(project, folder, no_webpack):
 #{
 	# Get name for this path.
-	# http://stackoverflow.com/a/5137509/5415895
+	# http://bit.ly/2wVprfh
 	this_path = os.path.dirname(os.path.realpath(__file__))
 
 	# Check if the folder exists, and create it if necessary.
-	# http://stackoverflow.com/a/273227/5415895
+	# http://bit.ly/2wl5jkU
 	if not os.path.exists(folder):
 		os.makedirs(folder)
 	if not os.path.exists(folder + "/scripts"):
@@ -18,7 +18,7 @@ def create_project(project, folder, no_webpack):
 	renderer = Renderer(this_path, __name__)
 
 	renderer.render("tsconfig.json", "tsconfig.json", folder, {})
-	# http://stackoverflow.com/a/8858026/5415895
+	# http://bit.ly/2glJp8b
 	renderer.render("main.ts", "scripts/main.ts", folder, {})
 	renderer.render("README.md", "README.md", folder, {"project": project})
 	if (not no_webpack):
