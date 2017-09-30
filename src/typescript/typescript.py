@@ -24,7 +24,7 @@ def create_project(project, folder, no_webpack):
 	if (not no_webpack):
 		# http://bit.ly/2nHluCr
 		renderer.render("webpack.config.js", "webpack.config.js", folder, {})
-		print("Don't forget to run `yarn init` and `yarn add --dev tsc-loader`!")
+		print("Don't forget to run `yarn init` and add the necessary packages!")
 	else:
 		renderer.render("build.py", "build.py", folder, {})
 #}
