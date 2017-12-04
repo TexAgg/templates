@@ -13,7 +13,7 @@ $(TEXFILE).pdf: $(TEXFILE).tex sources.bib
 
 .PHONY: clean
 clean:
-	rm -rf *.aux *.log *.out *.blg *.bbl *.run.xml *.toc
+	rm -rf *.aux *.log *.out *.blg *.bbl *.run.xml *.toc *-blx.bib *.lol
 
 \BLOCK{else}
 
@@ -23,7 +23,7 @@ $(TEXFILE).pdf: $(TEXFILE).tex
 
 .PHONY: clean
 clean:
-	rm -rf *.aux *.log *.out *.toc
+	rm -rf *.aux *.log *.out *.toc *.lol
 
 \BLOCK{endif}
 
