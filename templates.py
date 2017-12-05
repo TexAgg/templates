@@ -28,10 +28,11 @@ cpp_parser = subparsers.add_parser('cpp', help='Make a C++ project')
 hw_subparser = subparsers.add_parser('homework', help="Make a homework document")
 hw_subparser.add_argument('--honor', action='store_true', help="Whether to include the Aggie Honor Statement.")
 hw_subparser.add_argument("--bib", action="store_true", help="Include a bibliography")
+hw_subparser.add_argument("--name", default="Matt Gaikema", type=str, help="The author of the paper")
 
 # Typescript subparser.
 ts_subparser = subparsers.add_parser('ts', help="Make a homework document")
-# http://bit.ly/2wVaidH
+# http://bit.ly/2AUnMId
 ts_subparser.add_argument("--no-webpack", action="store_true", help="Whether to use Webpack for the bundling.")
 
 # PHP subparser.
@@ -42,7 +43,7 @@ args = vars(parser.parse_args())
 if args['type'] == "cpp":
 	cpp.create_project(args['title'], args['dir'])
 elif args['type'] == "homework":
-	homework.create_project(args['title'], args['dir'], args['honor'], args['bib'])
+	homework.create_project(args['title'], args['dir'], args['honor'], args['bib'], args['name'])
 elif args['type'] == 'ts':
 	ts.create_project(args['title'], args['dir'], args['no_webpack'])
 elif args['type'] == 'php':

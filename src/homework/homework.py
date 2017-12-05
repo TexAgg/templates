@@ -2,7 +2,7 @@ import sys
 import os
 from ..render import Renderer
 
-def create_project(assignment, folder, honor_statement, bib):
+def create_project(assignment, folder, honor_statement, bib, name):
 #{
 	# Get name for this path.
 	# http://bit.ly/2wVprfh
@@ -18,7 +18,7 @@ def create_project(assignment, folder, honor_statement, bib):
 	if bib:
 		renderer.render("sources.bib", "sources.bib", folder, {})
 
-	renderer.render("main.tex", "main.tex", folder, {"assignment": assignment, "bib": bib})
+	renderer.render("main.tex", "main.tex", folder, {"assignment": assignment, "bib": bib, "name": name})
 	renderer.render("Makefile", "Makefile", folder, {"bib": bib})
 	renderer.render("README.md", "README.md", folder, {"assignment": assignment})
 	

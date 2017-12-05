@@ -8,8 +8,8 @@
 \BLOCK{endif}
 % Meta tags: http://bit.ly/2yNWL7K
 \usepackage[pdftex,
-	pdfauthor={Matt Gaikema},
-	pdftitle={\VAR{args['assignment]}}
+	pdfauthor={\VAR{args['name']}},
+	pdftitle={\VAR{args['assignment']}}
 ]{hyperref}
 
 \BLOCK{if args['bib']}
@@ -17,7 +17,7 @@
 \BLOCK{endif}
 
 \title{\VAR{args['assignment']}}
-\author{Matt Gaikema}
+\author{\VAR{args['name']}}
 \date{\today}
 
 \begin{document}

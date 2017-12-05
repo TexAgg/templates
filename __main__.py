@@ -1,5 +1,5 @@
 # For executable zip file:
-# http://blog.ablepear.com/2012/10/bundling-python-files-into-stand-alone.html
+# http://bit.ly/2pUwe4m
 
 import sys
 import os
