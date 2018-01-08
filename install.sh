@@ -13,6 +13,13 @@ sudo cp templates /usr/local/bin
 # Delete the zip file.
 rm templates.zip
 
+MANPAGE=templates.1
+# Create man page from `--help` output.
+help2man templates -o ${MANPAGE} --no-discard-stderr
+# Save man page in the place where man pages are saved.
+sudo cp $MANPAGE /usr/local/man/man1
+
+
 # BETA: create deb package.
 # This will not install it.
 
