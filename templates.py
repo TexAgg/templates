@@ -17,7 +17,7 @@ version = d['version']
 
 parser = argparse.ArgumentParser(description="Create an empty project.", prog="templates")
 subparsers = parser.add_subparsers(help='type of project.', dest='type')
-parser.add_argument('-d', "--dir", help="The directory where the project should be.", required=True)
+parser.add_argument('-d', "--dir", help="The directory where the project should be. Defaults to current directory", default=os.getcwd())
 parser.add_argument('-t', '--title', help="Title of the project being made", required=True)
 parser.add_argument('--version', action='version', version='%(prog)s ' + version)
 
