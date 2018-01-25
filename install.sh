@@ -37,8 +37,8 @@ cp -t $TEMPDIR/usr/local/bin templates
 ## Parse version field from project.json: http://bit.ly/2wLYWrT
 VERSION=$(python -c "import sys, json; print json.load(sys.stdin)['version']" < package.json)
 ## http://bit.ly/2vuLn0q
-fpm -s dir -t deb -C $TEMPDIR -n "templates" -d python2.7 \
-	-d python-jinja2 -v $VERSION \
+fpm -s dir -t deb -f -C $TEMPDIR -n "templates" -d python2.7 \
+	-d python-jinja2 -d python-setuptools -v $VERSION \
 	--description "Templates and scripts for easily creating projects" \
 	--url "https://github.com/TexAgg/templates" \
 	--maintainer "mgaikema1@protonmail.com" --license "GPL-3.0" \
