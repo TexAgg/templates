@@ -18,11 +18,15 @@ MANPAGE=templates.1
 help2man templates -o ${MANPAGE} --no-discard-stderr
 # Save man page in the place where man pages are saved.
 sudo cp $MANPAGE /usr/local/man/man1
+# Since running `npm version *` updates the version and then creates a tag,
+# the version given in the manpage will always be behind, unless I manually
+# update it before release.
 
 
 # Create deb package.
 # This will not install it.
 
+# Create temporary directory for packaging.
 TEMPDIR=$(mktemp -d -p .)
 mkdir -p $TEMPDIR/usr/local/man/man1
 cp -t $TEMPDIR/usr/local/man/man1 $MANPAGE
@@ -33,7 +37,7 @@ cp -t $TEMPDIR/usr/local/bin templates
 ## Parse version field from project.json: http://bit.ly/2wLYWrT
 VERSION=$(python -c "import sys, json; print json.load(sys.stdin)['version']" < package.json)
 ## http://bit.ly/2vuLn0q
-fpm -s dir -t deb -C $TEMPDIR -n "templates" -d python \
+fpm -s dir -t deb -C $TEMPDIR -n "templates" -d python2.7 \
 	-d python-jinja2 -v $VERSION \
 	--description "Templates and scripts for easily creating projects" \
 	--url "https://github.com/TexAgg/templates" \
