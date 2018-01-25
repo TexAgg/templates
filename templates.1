@@ -3,7 +3,7 @@
 .SH NAME
 templates \- manual page for templates 2.1.0
 .SH DESCRIPTION
-usage: templates [\-h] \fB\-d\fR DIR \fB\-t\fR TITLE [\-\-version] {cpp,homework,ts,php} ...
+usage: templates [\-h] [\-d DIR] \fB\-t\fR TITLE [\-\-version] {cpp,homework,ts,php} ...
 .PP
 Create an empty project.
 .SS "positional arguments:"
@@ -28,7 +28,8 @@ Make a php project
 show this help message and exit
 .TP
 \fB\-d\fR DIR, \fB\-\-dir\fR DIR
-The directory where the project should be.
+The directory where the project should be. Defaults to
+current directory
 .TP
 \fB\-t\fR TITLE, \fB\-\-title\fR TITLE
 Title of the project being made

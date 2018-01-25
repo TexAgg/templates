@@ -20,21 +20,24 @@ help2man templates -o ${MANPAGE} --no-discard-stderr
 sudo cp $MANPAGE /usr/local/man/man1
 
 
-# BETA: create deb package.
+# Create deb package.
 # This will not install it.
 
-TEMP=temp.sh
-echo "sudo mv templates /usr/local/bin" > $TEMP
+TEMPDIR=$(mktemp -d -p .)
+mkdir -p $TEMPDIR/usr/local/man/man1
+cp -t $TEMPDIR/usr/local/man/man1 $MANPAGE
+mkdir -p $TEMPDIR/usr/local/bin
+cp -t $TEMPDIR/usr/local/bin templates
 
 # FPM: http://bit.ly/2pQlOlJ
 ## Parse version field from project.json: http://bit.ly/2wLYWrT
 VERSION=$(python -c "import sys, json; print json.load(sys.stdin)['version']" < package.json)
 ## http://bit.ly/2vuLn0q
-fpm -s dir -t deb -n "templates" --after-install $TEMP -d python \
+fpm -s dir -t deb -C $TEMPDIR -n "templates" -d python \
 	-d python-jinja2 -v $VERSION \
 	--description "Templates and scripts for easily creating projects" \
 	--url "https://github.com/TexAgg/templates" \
 	--maintainer "mgaikema1@protonmail.com" --license "GPL-3.0" \
-	templates
+	.
 
-rm $TEMP
+rm -r $TEMPDIR
